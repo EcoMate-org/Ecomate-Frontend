@@ -58,6 +58,7 @@ export async function POST(req: Request) {
         firstName: data.firstName,
         lastName: data.lastName,
         role: "USER",
+        imageFile: "https://i.pinimg.com/736x/06/88/7c/06887c5974f2842d15d440160398cbfa.jpg"
       },
       select: safeUserSelect,
     });
@@ -102,6 +103,7 @@ export async function POST(req: Request) {
       companyAddress: data.companyAddress,
       role: data.role,
       isVerified: verification.verified,
+      imageFile: "https://tse3.mm.bing.net/th/id/OIP.lS-UeOlf_GcwNcPUTpBJogHaHb?rs=1&pid=ImgDetMain&o=7&rm=3",
     },
     select: safeUserSelect,
   });
