@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "../../../lib/auth/server";
 import { dashboardPathForRole } from "../../../lib/auth/session";
-import LogoutButton from "../../../components/LogoutButton";
+import LogoutButton from "../../../components/dash_components/LogoutButton";
 
 export default async function NgoDashboard() {
   const user = await getCurrentUser();
