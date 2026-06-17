@@ -20,8 +20,7 @@ export default async function CompanyDashboard() {
           Registration Number: {user.registrationNumber}
         </p>
         <p className="mt-3 text-blue-100">
-          Purchase recyclable materials, place competitive bids and track your
-          supply.
+          List recyclable items, sponsor challenges, and track your environmental impact.
         </p>
         <div className="mt-8 rounded-xl bg-white/10 p-6 backdrop-blur">
           <p className="text-sm text-blue-100">Signed in as</p>
