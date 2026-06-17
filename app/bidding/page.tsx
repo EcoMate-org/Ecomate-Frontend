@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "../../lib/auth/server";
 import AppNav from "../../components/dash_components/AppNav";
 import AppBottomNav from "../../components/dash_components/AppBottomNav";
-import BiddingIndexView from "../../components/dash_components/BiddingIndexView";
+import BiddingIndexView from "../../components/market_components/BiddingIndexView";
 
 /**
  * /bidding — index page listing all active auctions.

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Gavel } from "lucide-react";
-import { useCountdown, formatCountdown } from "../../lib/useCountdown";
+import { useCountdown, formatCountdown } from "../../lib/market/useCountdown";
 
 interface OtherAuction {
   artworkId: string;

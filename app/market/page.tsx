@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "../../lib/auth/server";
 import AppNav from "../../components/dash_components/AppNav";
 import AppBottomNav from "../../components/dash_components/AppBottomNav";
-import MarketView from "../../components/dash_components/MarketView";
+import MarketView from "../../components/market_components/MarketView";
 
 /**
  * /market — the Marketplace tab.

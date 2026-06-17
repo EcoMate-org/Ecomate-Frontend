@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft, MessageCircle, Clock, Users } from "lucide-react";
-import { useCountdown, formatCountdown } from "../../lib/useCountdown";
+import { useCountdown, formatCountdown } from "../../lib/market/useCountdown";
 import BidHistoryList from "./BidHistoryList";
 import AuctionSidebarList from "./AuctionSidebarList";
 import ChatSheet from "./ChatSheet";

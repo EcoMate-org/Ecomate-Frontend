@@ -1,4 +1,4 @@
-import type { MaterialType, ItemStatus, ArtworkSaleType } from "../../generated/prisma/client";
+import type { MaterialType, ItemStatus, ArtworkSaleType } from "../../../generated/prisma/client";
 
 // ─────────────────────────────────────────────────────────────────────────
 // Unified marketplace listing shape.

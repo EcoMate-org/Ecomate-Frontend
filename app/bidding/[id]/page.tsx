@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "../../../lib/auth/server";
-import BiddingView from "../../../components/dash_components/BiddingView";
+import BiddingView from "../../../components/market_components/BiddingView";
 
 interface BiddingPageProps {
   params: Promise<{ id: string }>;

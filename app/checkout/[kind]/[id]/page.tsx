@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "../../../../lib/auth/server";
-import CheckoutView from "../../../../components/dash_components/CheckoutView";
+import CheckoutView from "../../../../components/market_components/CheckoutView";
 
 interface CheckoutPageProps {
   params: Promise<{ kind: string; id: string }>;

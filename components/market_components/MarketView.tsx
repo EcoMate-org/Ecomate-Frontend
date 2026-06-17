@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SafeUser } from "../../lib/auth/server";
-import type { MarketListing } from "../../lib/marketTypes";
-import { useMarketListings, type MarketFilters } from "../../lib/useMarketListings";
+import type { MarketListing } from "../../lib/market/marketTypes";
+import { useMarketListings, type MarketFilters } from "../../lib/market/useMarketListings";
 import MarketFilterBar from "./MarketFilterBar";
 import MarketProductCard from "./MarketProductCard";
 import ProductDetailSidebar from "./ProductDetailSidebar";

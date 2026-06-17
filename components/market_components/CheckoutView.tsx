@@ -5,8 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
-import type { MarketListing } from "../../lib/marketTypes";
-import { MATERIAL_LABELS } from "../../lib/marketTypes";
+import type { MarketListing } from "../../lib/market/marketTypes";
+import { MATERIAL_LABELS } from "../../lib/market/marketTypes";
 
 interface CheckoutViewProps {
   kind: "item" | "artwork";

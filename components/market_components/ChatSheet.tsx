@@ -156,9 +156,9 @@ export default function ChatSheet({ open, onClose, recipientId, currentUserId }:
 
   return (
     <>
-      <div className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-60 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="fixed bottom-0 left-0 right-0 z-[60] flex h-[80vh] flex-col rounded-t-2xl border-t border-white/10 bg-[#0d2818] sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:h-[70vh] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:border">
+      <div className="fixed bottom-0 left-0 right-0 z-60 flex h-[80vh] flex-col rounded-t-2xl border-t border-white/10 bg-[#0d2818] sm:bottom-auto sm:left-1/2 sm:top-1/2 sm:h-[70vh] sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl sm:border">
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-white/8 px-4 py-3">
           {otherUser && (

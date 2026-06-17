@@ -6,7 +6,7 @@ import {
   listingStatusLabel,
   listingStatusBadgeClass,
   MATERIAL_LABELS,
-} from "../../lib/marketTypes";
+} from "../../lib/market/marketTypes";
 
 interface MarketProductCardProps {
   listing: MarketListing;

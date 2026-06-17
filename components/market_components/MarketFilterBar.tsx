@@ -1,8 +1,8 @@
 "use client";
 
 import { Search, SlidersHorizontal } from "lucide-react";
-import { MATERIAL_LABELS } from "../../lib/marketTypes";
-import type { MarketFilters } from "../../lib/useMarketListings";
+import { MATERIAL_LABELS } from "../../lib/market/marketTypes";
+import type { MarketFilters } from "../../lib/market/useMarketListings";
 
 interface MarketFilterBarProps {
   filters: MarketFilters;

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { X, MessageCircle, Clock } from "lucide-react";
-import type { MarketListing } from "../../lib/marketTypes";
-import { MATERIAL_LABELS } from "../../lib/marketTypes";
+import type { MarketListing } from "../../lib/market/marketTypes";
+import { MATERIAL_LABELS } from "../../lib/market/marketTypes";
 import ChatSheet from "./ChatSheet";
 
 interface ProductDetailSidebarProps {
@@ -117,7 +117,7 @@ export default function ProductDetailSidebar({
       <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
       {/* Sliding panel — from the left */}
-      <div className="fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-[#0d2818] shadow-2xl animate-in slide-in-from-left duration-200 sm:w-[420px] sm:border-r sm:border-white/10">
+      <div className="fixed left-0 top-0 z-50 h-full w-full overflow-y-auto bg-[#0d2818] shadow-2xl animate-in slide-in-from-left duration-200 sm:w-105 sm:border-r sm:border-white/10">
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-white/8 bg-[#0a1f12] px-4 py-3">
           <h2 className="text-sm font-semibold text-white">Product Details</h2>
