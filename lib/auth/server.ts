@@ -13,6 +13,9 @@ import {
  * Public-safe shape of a user (never includes passwordHash).
  */
 export type SafeUser = {
+  balance: any;
+  co2SavedKg: any;
+  totalWeightKg: any;
   id: string;
   username: string;
   email: string;

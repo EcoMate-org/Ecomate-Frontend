@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  NGO
+  COMPANY
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  INACTIVE
+}
+
+enum PostType {
+  MOMENT
+  LISTING
+  CHALLENGE_ANNOUNCEMENT
+}
+
+enum MaterialType {
+  PLASTIC
+  GLASS
+  METAL
+  E_WASTE
+  RUBBER
+}
+
+model User {
+  id                 String      @id @default(cuid())
+  username           String      @unique
+  email              String      @unique
+  passwordHash       String
+  role               Role        @default(USER)
+  firstName          String?
+  lastName           String?
+  companyName        String?
+  registrationNumber String?     @unique
+  companyAddress     String?
+  isVerified         Boolean     @default(false)
+  imageFile          String?
+  bio                String?
+  status             UserStatus  @default(ACTIVE)
+  
+  // Impact stats
+  itemsRecycled      Int         @default(0)
+  totalWeightKg      Float       @default(0)
+  co2SavedKg         Float       @default(0)
+  balance            Float       @default(0)
+  communityRankPercent Int?
+
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  posts              Post[]
+  comments           Comment[]
+  likes              Like[]
+  bookmarks          Bookmark[]
+  recyclingRecords   RecyclingRecord[]
+}
+
+model Post {
+  id        String    @id @default(cuid())
+  text      String
+  imageUrl  String?
+  location  String?
+  type      PostType  @default(MOMENT)
+  authorId  String
+  author    User      @relation(fields: [authorId], references: [id])
+  comments  Comment[]
+  likes     Like[]
+  bookmarks Bookmark[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  // Relations to supporting content
+  item      Item?
+  challenge Challenge?
+  artwork   Artwork?
+}
+
+model Item {
+  id               String @id @default(cuid())
+  title            String
+  pricePerQuantity Float
+  quantity         Int
+  status           String
+  postId           String @unique
+  post             Post   @relation(fields: [postId], references: [id])
+}
+
+model Challenge {
+  id       String   @id @default(cuid())
+  title    String
+  reward   String
+  deadline DateTime
+  postId   String   @unique
+  post     Post     @relation(fields: [postId], references: [id])
+}
+
+model Artwork {
+  id             String @id @default(cuid())
+  title          String
+  fixedPrice     Float?
+  estimatedPrice Float?
+  postId         String @unique
+  post             Post   @relation(fields: [postId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id])
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id])
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([postId, userId])
+}
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id])
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([postId, userId])
+}
+
+model RecyclingRecord {
+  id         String       @id @default(cuid())
+  userId     String
+  user       User         @relation(fields: [userId], references: [id])
+  material   MaterialType
+  weightKg   Float
+  createdAt  DateTime     @default(now())
+}
