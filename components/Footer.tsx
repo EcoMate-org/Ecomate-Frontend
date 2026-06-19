@@ -3,10 +3,17 @@
 import { Leaf, Mail, Phone, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { useTheme } from "../lib/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
+
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer
+      className={`transition-colors duration-300 ${
+        theme === "dark" ? "bg-gray-950 text-white" : "bg-gray-900 text-white"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -28,7 +35,9 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 rounded-lg bg-gray-800 flex items-center justify-center hover:bg-ecomate-600 transition-colors"
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center hover:bg-ecomate-600 transition-colors ${
+                    theme === "dark" ? "bg-gray-800/80" : "bg-gray-800"
+                  }`}
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -44,7 +53,7 @@ export default function Footer() {
                 (link) => (
                   <li key={link}>
                     <a
-                      href={link === "Home" ? "#home" : link === "Our Why" ? "#our-why" : link === "Contact Us" ? "#contact-us" : `/${link.toLowerCase().replace(" ", "-")}`}
+                      href={link === "Home" ? "/#home" : link === "Our Why" ? "/#our-why" : link === "Contact Us" ? "/#contact-us" : `/${link}`}
                       className="text-gray-400 hover:text-ecomate-400 transition-colors text-sm"
                     >
                       {link}
@@ -94,7 +103,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div
+          className={`mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 border-t ${
+            theme === "dark" ? "border-gray-800/60" : "border-gray-800"
+          }`}
+        >
           <p className="text-gray-500 text-sm">
             © 2026 EcoMate AI. All rights reserved.
           </p>

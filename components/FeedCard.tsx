@@ -1,3 +1,7 @@
+"use client";
+
+import { useTheme } from "../lib/ThemeContext";
+
 type Props = {
   title: string;
   description: string;
@@ -15,11 +19,17 @@ export default function FeedCard({
   source,
   publishedAt,
 }: Props) {
+  const { theme } = useTheme();
+
   return (
     <a
       href={url}
       target="_blank"
-      className="glass card-hover block rounded-xl overflow-hidden border border-ecomate-100"
+      className={`glass card-hover block rounded-xl overflow-hidden border transition-colors duration-300 ${
+        theme === "dark"
+          ? "border-gray-700 hover:border-ecomate-700"
+          : "border-ecomate-100 hover:border-ecomate-200"
+      }`}
     >
       {image && (
         <img
@@ -30,20 +40,36 @@ export default function FeedCard({
       )}
 
       <div className="p-4 space-y-2">
-        <div className="flex justify-between text-xs text-gray-500">
+        <div
+          className={`flex justify-between text-xs ${
+            theme === "dark" ? "text-gray-400" : "text-gray-500"
+          }`}
+        >
           <span>{source}</span>
           <span>{new Date(publishedAt).toLocaleDateString()}</span>
         </div>
 
-        <h2 className="font-semibold text-lg text-ecomate-900">
+        <h2
+          className={`font-semibold text-lg transition-colors ${
+            theme === "dark" ? "text-ecomate-300" : "text-ecomate-900"
+          }`}
+        >
           {title}
         </h2>
 
-        <p className="text-sm text-gray-600 line-clamp-3">
+        <p
+          className={`text-sm line-clamp-3 ${
+            theme === "dark" ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
           {description}
         </p>
 
-        <span className="text-ecomate-600 text-sm font-medium">
+        <span
+          className={`text-sm font-medium ${
+            theme === "dark" ? "text-ecomate-400" : "text-ecomate-600"
+          }`}
+        >
           Read more →
         </span>
       </div>
