@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -23,6 +21,7 @@
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
@@ -30,12 +29,13 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files (keep secrets out of version control)
+.env
+.env*.local
+.env.development
+.env.production
+# but commit the template so others know what vars are needed:
 !.env.example
-
-# prisma generated client
-/generated/prisma
 
 # vercel
 .vercel
@@ -44,4 +44,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# prisma
 /generated/prisma
+/prisma/*.db
+/prisma/*.db-journal
+
+# editors / IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+
+# agent files (optional — your choice)
+AGENTS.md
+CLAUDE.md
