@@ -3,6 +3,9 @@
 
 @config "../tailwind.config.ts";
 
+/* Tailwind v4 dark mode custom variant using data-theme attribute */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @theme {
   --color-ecomate-50: #f0fdf4;
   --color-ecomate-100: #dcfce7;
@@ -24,6 +27,11 @@
   --foreground: #171717;
 }
 
+[data-theme="dark"] {
+  --background: #0f172a;
+  --foreground: #e2e8f0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -34,6 +42,7 @@ body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -43,6 +52,10 @@ body {
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #1e293b;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -64,14 +77,26 @@ body {
   @apply bg-clip-text text-transparent bg-linear-to-r from-ecomate-600 to-ecomate-400;
 }
 
+[data-theme="dark"] .gradient-text {
+  @apply from-ecomate-400 to-ecomate-300;
+}
+
 /* Glass effect */
 .glass {
   @apply bg-white/80 backdrop-blur-md border border-white/20;
 }
 
+[data-theme="dark"] .glass {
+  @apply bg-gray-800/80 border-gray-700/30;
+}
+
 /* Card hover */
 .card-hover {
   @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+[data-theme="dark"] .card-hover:hover {
+  --tw-shadow-color: rgba(34, 197, 94, 0.1);
 }
 
 /* Button styles */
@@ -85,6 +110,10 @@ body {
   @apply border-2 border-ecomate-600 text-ecomate-600 px-6 py-3 rounded-lg font-medium
          hover:bg-ecomate-600 hover:text-white transition-all duration-300
          active:scale-95;
+}
+
+[data-theme="dark"] .btn-outline {
+  @apply border-ecomate-400 text-ecomate-400 hover:bg-ecomate-600 hover:text-white;
 }
 
 /* Section reveal animation */
