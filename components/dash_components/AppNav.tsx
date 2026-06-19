@@ -33,9 +33,10 @@ export default function AppNav({ user }: AppNavProps) {
 
       {/* Right side icons */}
       <div className="flex items-center gap-1.5">
-        <NavIconBtn aria-label="Search">
+       
+       {/* <NavIconBtn aria-label="Search">
           <Search size={14} />
-        </NavIconBtn>
+        </NavIconBtn>*/}
 
         {/* Notifications */}
         <div className="relative">
