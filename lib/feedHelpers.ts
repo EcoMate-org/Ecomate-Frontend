@@ -98,7 +98,7 @@ export const DEMO_FEED_POSTS: FeedPost[] = [
 ];*/
 
 
-import type { MaterialType, PostType, UserRole } from "../../generated/prisma/client";
+import type { MaterialType, PostType, UserRole } from "../generated/prisma/client";
 
 // ── Types matching /api/posts response shape ────────────────────────────────
 

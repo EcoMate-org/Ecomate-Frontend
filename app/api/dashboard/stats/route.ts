@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";
 import { getCurrentUser } from "../../../../lib/auth/server";
-import { MaterialType } from "../../../../../generated/prisma/client";
+import { MaterialType } from "../../../../generated/prisma/client";
 
 /**
  * CO2 saved per kg of recycled material, by material type.

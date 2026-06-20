@@ -420,7 +420,13 @@ model ScanHistory {
 
   predictedMaterial MaterialType
 
-  confidenceScore Float
+  qualityScore Float
+
+  estimatedPrice Decimal @db.Decimal(10,2)
+
+  summary String?
+
+  isArtwork Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
