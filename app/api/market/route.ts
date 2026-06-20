@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../lib/prisma";
 import { getCurrentUser } from "../../../lib/auth/server";
-import type { MaterialType, ItemStatus } from "../../../../generated/prisma/client";
-import type { MarketListing } from "../../../lib/marketTypes";
+import type { MaterialType, ItemStatus } from "../../../generated/prisma/client";
+import type { MarketListing } from "../../../lib/market/marketTypes";
 
 /**
  * GET /api/market

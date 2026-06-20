@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../../lib/prisma";
 import { getCurrentUser } from "../../../../../lib/auth/server";
-import type { MarketListing, ListingKind } from "../../../../../lib/marketTypes";
+import type { MarketListing, ListingKind } from "../../../../../lib/market/marketTypes";
 
 const OWNER_SELECT = {
   id: true,

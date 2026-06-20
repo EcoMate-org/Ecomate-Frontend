@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { MaterialType } from "../../generated/prisma/client";
+import type { MaterialType } from "../generated/prisma/client";
 
 export interface DashboardStatsResponse {
   user: {
